@@ -1,0 +1,42 @@
+.registration{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    align-self: center;
+    margin-top: 200px;
+    position: relative;
+
+
+}
+
+.registration-header{
+font-size: 30px;
+font-weight: 700;
+}
+input {
+    margin:5px 20px
+    
+}
+input:focus{
+    outline: none;
+    outline-offset: 0;
+    transform: scale(1.07);
+
+}
+.registration-btn{
+border: none;
+color:  #FFFFFF;
+background: #566885;
+font-weight: 700;
+width: 118px;
+height: 32px;
+border-radius: 12px;
+padding: 5px 10px;
+align-self: flex-end;
+margin-top: 10px;
+
+}
