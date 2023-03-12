@@ -1,7 +1,7 @@
 import React from "react";
 import "./navBar.css";
 import logo from "../../assets/img/logo.svg";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -11,11 +11,14 @@ const NavBar = () => {
         <div className="navbar-header">MERN CLOUD</div>
         <div className="autorization">
           <div className="navbar-login">
-            <NavLink to="/login">Войти</NavLink>
+            <Link to="/login">Войти</Link>
           </div>
+
           <div className="navbar-registration">
-            <NavLink to="/registration">Регистрация</NavLink>
+            <Link to="/registration">Регистрация</Link>
           </div>
+
+          {/* <div className="navbar-login">Выйти</div> */}
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
     border-radius: 20px;
     padding: 30px;
     align-self: center;
-    margin-top: 200px;
+    margin-top: 100px;
     position: relative;
 
 
@@ -32,10 +32,10 @@ border: none;
 color:  #FFFFFF;
 background: #566885;
 font-weight: 700;
-width: 118px;
+width: 150px;
 height: 32px;
 border-radius: 12px;
-padding: 5px 10px;
+padding: 5px 5px;
 align-self: flex-end;
 margin-top: 10px;
 
