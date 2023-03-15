@@ -1,0 +1,10 @@
+.disk{
+margin-top: 20px;
+
+}
+.disk-btn{
+    display: flex;
+}
+.disk-create{
+    margin-left: 10px;
+}
