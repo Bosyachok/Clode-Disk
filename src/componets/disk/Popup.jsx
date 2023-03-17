@@ -10,6 +10,7 @@ const Popup = () => {
   const popupDisplay = useSelector((state) => state.files.popupDisplay);
   const currentDir = useSelector((state) => state.files.currentDir);
   const dispatch = useDispatch();
+
   // Обработчик события при добавлении новой папки
   function clickHandler() {
     dispatch(createDir(currentDir, dirName));
@@ -20,11 +21,11 @@ const Popup = () => {
     //модального окна на "none", в обработчике события при добавлении новой
     //папки после вызова функции dispatch(createDir(currentDir, dirName)).
   }
+
   // Функция для очистки поля ввода
   function clearInput() {
     setDirName("");
   }
-  useEffect(() => {});
 
   return (
     <div
