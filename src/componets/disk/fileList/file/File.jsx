@@ -9,15 +9,17 @@ const File = ({ file }) => {
   const dispatch = useDispatch();
   const currentDir = useSelector((state) => state.files.currentDir);
 
-  function openDirHandler() {
-    dispatch(pushToStack(currentDir));
-    dispatch(setCurrent(file._id));
+  function openDirHandler(file) {
+    if (file.type === "dir") {
+      dispatch(pushToStack(currentDir));
+      dispatch(setCurrent(file._id));
+    }
   }
 
   return (
     <div
       className="file"
-      onClick={file.type === "dir" ? () => openDirHandler() : ""}
+      onClick={() => openDirHandler(file)} //вызывается ток тогда когда тип файла равен dir
     >
       <img
         className="file-img"

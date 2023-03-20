@@ -17,6 +17,19 @@ margin: 18px;
 cursor: pointer;
 }
 
+.disk-upload{
+
+}
+.disk-upload-label{
+border: 2px dashed #566885 ;
+padding:5px 10px;
+cursor:pointer;
+margin-left: 10px;
+}
+.disk-upload-input{
+    display: none;
+}
+
 .popup{
 width: 100%;
 height: 100vh;

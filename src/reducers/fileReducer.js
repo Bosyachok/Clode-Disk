@@ -11,6 +11,7 @@ const defaultState = {
   popupDisplay: "none",
   dirStack: [],
 };
+//stack это стукртура данный по принципу последним зашел первым вышел, последнняя папка открытая будет лежать на вершине
 
 export default function fileReducer(state = defaultState, action) {
   switch (action.type) {
