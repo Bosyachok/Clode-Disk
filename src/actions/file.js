@@ -75,3 +75,25 @@ export function uploadFile(file, dirId) {
     }
   };
 }
+
+export async function downloadFile(file) {
+  const response = await fetch(
+    `http://localhost:5000/api/files/download?id=${file._id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+
+  if (response.status === 200) {
+    const blob = await response.blob(); // это подобный физическому файлу обьект, получаеим из ответа сервера
+    const downloadUrl = window.URL.createObjectURL(blob); //из blob созадем url, грубо говоря получили файл в бинарном виде
+    const link = document.createElement("a"); //перебразовываем в норм файл
+    link.href = downloadUrl; //создается невидимая ссылка указываем URL полученый из blob
+    link.download = file.name; //У ССЫЛКИ УКАЗЫВАЕМ ИМЯ ФАЙЛА
+    document.body.appendChild(link); //добавляем эту ссылку в документ с пом appendChild - является частью документа
+    link.click(); //имитируем нажатие пользователя на эту ссыку
+    link.remove(); //удаляем
+  }
+}

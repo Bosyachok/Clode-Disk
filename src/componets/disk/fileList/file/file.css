@@ -1,23 +1,48 @@
 .file{
+    
     margin: 10px 0;
     border-bottom: solid 2px #566885;
-    display: grid;
-    grid-template-columns: 1fr 4fr repeat(4, 1fr);
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 .file:hover{
     transform: scale(1.02);
 
 }
 .file-img{
-    justify-self: center;
+    margin-left: 20px;
 }
-.file-date{
-    grid-column-start: 5;
-    justify-self: center;
-}
-.file-size{
-    grid-column-start: 6;
-    justify-self: center;
+.file-name {
+    flex-grow: 1;
+    margin-left: 50px;
+  }
+  .file-date,
+  .file-size {
+    margin-right: 10px;
+    width: 120px; 
+    text-align: center;
+  }
 
-}
+  .file-download,
+  .file-delete {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 1px solid #566885;
+border-radius: 37px;
+width: 58px;
+height: 34px;
+    
+  }
+  
+  .file-download:hover,
+  .file-delete:hover{
+    background-color: rgba(138, 43, 226, 0.2);
+   
+  }
+/* .file-btn{
+    display: none;
+} */

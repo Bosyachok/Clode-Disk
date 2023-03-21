@@ -2,8 +2,11 @@ import React from "react";
 import "./file.css";
 import filelogo from "./../../../../assets/img/filelogo.svg";
 import papkalogo from "./../../../../assets/img/papkalogo.svg";
+import save from "./../../../../assets/img/save.svg";
+import deletE from "./../../../../assets/img/deletE.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { pushToStack, setCurrent } from "./../../../../reducers/fileReducer";
+import { downloadFile } from "../../../../actions/file";
 
 const File = ({ file }) => {
   const dispatch = useDispatch();
@@ -14,6 +17,10 @@ const File = ({ file }) => {
       dispatch(pushToStack(currentDir));
       dispatch(setCurrent(file._id));
     }
+  }
+  function downloadClickHandler(e) {
+    e.stopPropagation();
+    downloadFile(file);
   }
 
   return (
@@ -27,8 +34,19 @@ const File = ({ file }) => {
         alt=""
       />
       <div className="file-name">{file.name}</div>
-      <div className="file-date">{file.date.slice(0, 10)}</div>
-      <div className="file-size">{file.size}</div>
+      {file.type !== "dir" && (
+        <button
+          className=" file-download"
+          onClick={(e) => downloadClickHandler(e)}
+        >
+          <img src={save} alt="" />
+        </button>
+      )}
+      <button className=" file-delete">
+        <img src={deletE} alt="" />
+      </button>
+      <div className="file-btn file-date">{file.date.slice(0, 10)}</div>
+      <div className="file-btn file-size">{file.size}</div>
     </div>
   );
 };

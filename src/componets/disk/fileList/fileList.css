@@ -1,19 +1,22 @@
 .fileList{
-    margin: 20px 0;
+    /* margin: 20px 0; */
 }
 .fileList-header{
-    display: grid;
-    grid-template-columns: 1fr 4fr repeat(4, 1fr);
+    margin: 10px 0;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 .fileList-name{
-grid-column-start: 2;
+    flex-grow: 1;
+    margin-left: 50px;
 }
-.fileList-date{
-    grid-column-start: 5;
-    justify-self: center;
+.fileList-date, .fileList-size{
+    margin-right: 10px;
+    width: 120px; 
+    text-align: center;
+    
 }
-.fileList-size{
-    grid-column-start: 6;
-    justify-self: center;
 
-}
