@@ -82,8 +82,16 @@ input{
 .disk-back img{
     display: block;
     margin: 0 auto;
- 
-    
+  
+}
 
-   
+.drop-area{
+    width: 100%;
+    height: calc(100vh - 50px - 40px);
+    margin: 20px;
+    border: dashed #566885 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 }
