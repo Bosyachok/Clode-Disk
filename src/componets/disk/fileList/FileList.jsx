@@ -7,7 +7,7 @@ const FileList = () => {
   const files = useSelector((state) => state.files.files).map((file) => (
     <File key={file._id} file={file} />
   ));
-
+  console.log("files", files);
   return (
     <div className="fileList">
       <div className="fileList-header">
@@ -15,7 +15,11 @@ const FileList = () => {
         <div className="fileList-date">Дата</div>
         <div className="fileList-size">Размер</div>
       </div>
-      {files}
+      {files.length !== 0 ? (
+        files
+      ) : (
+        <h1>Файлов нет, файлы пока не добавлены</h1>
+      )}
     </div>
   );
 };

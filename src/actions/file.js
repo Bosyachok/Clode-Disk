@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addFile, setFiles } from "../reducers/fileReducer";
+import { addFile, setFiles, deleteFileAction } from "../reducers/fileReducer";
 
 export function getFiles(dirId) {
   //передаем парамер текущей директории в которой находимся
@@ -96,4 +96,22 @@ export async function downloadFile(file) {
     link.click(); //имитируем нажатие пользователя на эту ссыку
     link.remove(); //удаляем
   }
+}
+export function deleteFile(file) {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:5000/api/files?id=${file._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(deleteFileAction(file._id));
+      alert(response.data.message);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
 }

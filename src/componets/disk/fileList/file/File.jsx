@@ -6,7 +6,7 @@ import save from "./../../../../assets/img/save.svg";
 import deletE from "./../../../../assets/img/deletE.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { pushToStack, setCurrent } from "./../../../../reducers/fileReducer";
-import { downloadFile } from "../../../../actions/file";
+import { downloadFile, deleteFile } from "../../../../actions/file";
 
 const File = ({ file }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,10 @@ const File = ({ file }) => {
     e.stopPropagation();
     downloadFile(file);
   }
-
+  function deleteClickHandler(e) {
+    e.stopPropagation();
+    dispatch(deleteFile(file));
+  }
   return (
     <div
       className="file"
@@ -42,7 +45,7 @@ const File = ({ file }) => {
           <img src={save} alt="" />
         </button>
       )}
-      <button className=" file-delete">
+      <button className=" file-delete" onClick={(e) => deleteClickHandler(e)}>
         <img src={deletE} alt="" />
       </button>
       <div className="file-btn file-date">{file.date.slice(0, 10)}</div>
