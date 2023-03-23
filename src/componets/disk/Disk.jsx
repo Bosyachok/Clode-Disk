@@ -6,6 +6,7 @@ import back from "./../../assets/img/back.svg";
 import FileList from "./fileList/FileList";
 import Popup from "./Popup";
 import { setPopupDisplay, setCurrent } from "./../../reducers/fileReducer";
+import Uploader from "./uploader/Uploader";
 
 const Disk = () => {
   const dispatch = useDispatch();
@@ -75,6 +76,7 @@ const Disk = () => {
       </div>
       <FileList />
       <Popup />
+      <Uploader />
     </div>
   ) : (
     <div
