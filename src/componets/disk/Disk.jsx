@@ -12,11 +12,13 @@ const Disk = () => {
   const dispatch = useDispatch();
   const currentDir = useSelector((state) => state.files.currentDir);
   const dirStack = useSelector((state) => state.files.dirStack);
+  const loader = useSelector((state) => state.app.loader);
   const [dragEnter, setDragEnter] = useState(false);
+  const [sort, setSort] = useState("type");
 
   useEffect(() => {
-    dispatch(getFiles(currentDir));
-  }, [currentDir]);
+    dispatch(getFiles(currentDir, sort));
+  }, [currentDir, sort]);
 
   function createDirHandler() {
     dispatch(setPopupDisplay("flex"));
@@ -46,7 +48,26 @@ const Disk = () => {
     files.forEach((file) => dispatch(uploadFile(file, currentDir)));
     setDragEnter(false);
   }
-
+  if (loader) {
+    return (
+      <div className="loader">
+        <div className="lds-default">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
+  }
   return !dragEnter ? (
     <div
       className="disk"
@@ -73,6 +94,15 @@ const Disk = () => {
             className="disk-upload-input"
           />
         </div>
+        <select
+          className="disk-select"
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+        >
+          <option value="name">По имени</option>
+          <option value="type">По типу</option>
+          <option value="date">По дате</option>
+        </select>
       </div>
       <FileList />
       <Popup />

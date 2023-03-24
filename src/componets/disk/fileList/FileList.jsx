@@ -2,12 +2,14 @@ import React from "react";
 import "./fileList.css";
 import { useSelector } from "react-redux";
 import File from "./file/File";
-
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 const FileList = () => {
-  const files = useSelector((state) => state.files.files).map((file) => (
-    <File key={file._id} file={file} />
-  ));
+  const { files } = useSelector((state) => state.files);
   console.log("files", files);
+
+  if (files.length === 0) {
+    return <div className="fileList-fileNull">Папка пустая</div>;
+  }
   return (
     <div className="fileList">
       <div className="fileList-header">
@@ -15,11 +17,21 @@ const FileList = () => {
         <div className="fileList-date">Дата</div>
         <div className="fileList-size">Размер</div>
       </div>
-      {files.length !== 0 ? (
-        files
-      ) : (
-        <h1>Файлов нет, файлы пока не добавлены</h1>
-      )}
+      <div>
+        <TransitionGroup>
+          {files.map((file) => (
+            <CSSTransition
+              key={file._id}
+              classNames={"file"}
+              timeout={500}
+              appear
+              unmountOnExit
+            >
+              <File file={file} />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </div>
     </div>
   );
 };

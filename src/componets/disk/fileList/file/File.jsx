@@ -7,6 +7,7 @@ import deletE from "./../../../../assets/img/deletE.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { pushToStack, setCurrent } from "./../../../../reducers/fileReducer";
 import { downloadFile, deleteFile } from "../../../../actions/file";
+import sizeFormat from "../../../../utils/input/sizeFormat";
 
 const File = ({ file }) => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const File = ({ file }) => {
         <img src={deletE} alt="" />
       </button>
       <div className="file-btn file-date">{file.date.slice(0, 10)}</div>
-      <div className="file-btn file-size">{file.size}</div>
+      <div className="file-btn file-size">{sizeFormat(file.size)}</div>
     </div>
   );
 };

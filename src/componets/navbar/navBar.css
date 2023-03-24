@@ -30,3 +30,7 @@ line-height: 23px;
     display: flex;
     align-items: center;
 }
+.navbar-search{
+    width: 200px;
+    margin-left: 30px;
+}
