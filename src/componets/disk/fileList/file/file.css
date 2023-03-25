@@ -43,6 +43,37 @@ height: 34px;
     background-color: rgba(138, 43, 226, 0.2);
    
   }
-/* .file-btn{
-    display: none;
-} */
+.file-plate{
+width: 20%;
+height: 150px;
+cursor: pointer;
+margin: 10px;
+text-align: center;
+box-sizing: border-box
+}
+@media (max-width: 768px) {
+  .flex-plate {
+    width: 50%;
+  }
+}
+.file-plate__img{
+  height: 100px;
+  width: 100px;
+
+}
+.file-plate__btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+}
+.file-plate:hover .file-plate__btn {
+  display: flex;
+  align-items: center;
+justify-self: center
+
+}
+.file-plate:hover .file-plate__btn img {
+  display: block;
+  margin: auto;
+}

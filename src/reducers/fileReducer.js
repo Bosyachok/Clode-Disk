@@ -4,12 +4,13 @@ const ADD_FILE = "ADD_FILE";
 const SET_POPUP_DISPLAY = "SET_POPUP_DISPLAY";
 const PUSH_TO_STACK = "PUSH_TO_STACK";
 const DELETE_FILE = "DELETE_FILE";
-
+const SET_VIEW = "SET_VIEW";
 const defaultState = {
   files: [],
   currentDir: null,
   popupDisplay: "none",
   dirStack: [],
+  view: "list",
 };
 //stack это стукртура данный по принципу последним зашел первым вышел, последнняя папка открытая будет лежать на вершине
 
@@ -32,6 +33,8 @@ export default function fileReducer(state = defaultState, action) {
         ...state,
         files: [...state.files.filter((file) => file._id !== action.payload)],
       };
+    case SET_VIEW:
+      return { ...state, view: action.payload };
     default:
       return state;
   }
@@ -51,6 +54,10 @@ export const pushToStack = (dir) => ({
 export const deleteFileAction = (dirId) => ({
   type: DELETE_FILE,
   payload: dirId,
+});
+export const setFileView = (payload) => ({
+  type: SET_VIEW,
+  payload,
 });
 //action.payload - это свойство объекта action, которое содержит данные,
 //переданные в экшен.

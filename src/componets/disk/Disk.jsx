@@ -5,7 +5,11 @@ import "./disk.css";
 import back from "./../../assets/img/back.svg";
 import FileList from "./fileList/FileList";
 import Popup from "./Popup";
-import { setPopupDisplay, setCurrent } from "./../../reducers/fileReducer";
+import {
+  setPopupDisplay,
+  setCurrent,
+  setFileView,
+} from "./../../reducers/fileReducer";
 import Uploader from "./uploader/Uploader";
 
 const Disk = () => {
@@ -94,15 +98,27 @@ const Disk = () => {
             className="disk-upload-input"
           />
         </div>
-        <select
-          className="disk-select"
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-        >
-          <option value="name">По имени</option>
-          <option value="type">По типу</option>
-          <option value="date">По дате</option>
-        </select>
+        <div style={{ display: "flex" }}>
+          <select
+            className="disk-select"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="name">По имени</option>
+            <option value="type">По типу</option>
+            <option value="date">По дате</option>
+          </select>
+          <div>
+            <button
+              className="disk-plate"
+              onClick={() => dispatch(setFileView("plate"))}
+            ></button>
+            <button
+              className="disk-list"
+              onClick={() => dispatch(setFileView("list"))}
+            ></button>
+          </div>
+        </div>
       </div>
       <FileList />
       <Popup />
