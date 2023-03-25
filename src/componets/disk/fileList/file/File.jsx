@@ -42,13 +42,13 @@ const File = ({ file }) => {
         <div className="file-name">{file.name}</div>
         {file.type !== "dir" && (
           <button
-            className=" file-download"
+            className="file-download"
             onClick={(e) => downloadClickHandler(e)}
           >
             <img src={save} alt="" />
           </button>
         )}
-        <button className=" file-delete" onClick={(e) => deleteClickHandler(e)}>
+        <button className="file-delete" onClick={(e) => deleteClickHandler(e)}>
           <img src={deletE} alt="" />
         </button>
         <div className="file-btn file-date">{file.date.slice(0, 10)}</div>
@@ -63,7 +63,7 @@ const File = ({ file }) => {
         onClick={() => openDirHandler(file)} //вызывается ток тогда когда тип файла равен dir
       >
         <img
-          className=" file-plate__img"
+          className="file-plate__img"
           src={file.type === "dir" ? papkalogo : filelogo}
           alt=""
         />
@@ -72,17 +72,17 @@ const File = ({ file }) => {
         <div className="file-plate__btn">
           {file.type !== "dir" && (
             <button
-              className=" file-plate__download file-plate__btn"
+              className="file-plate__download file-plate__btn"
               onClick={(e) => downloadClickHandler(e)}
             >
-              <img src={save} alt="" />
+              <img src={save} alt="save button" />
             </button>
           )}
           <button
-            className=" file-delete file-plate__btn"
+            className="file-delete file-plate__btn"
             onClick={(e) => deleteClickHandler(e)}
           >
-            <img src={deletE} alt="" />
+            <img src={deletE} alt="deletE button" />
           </button>
         </div>
       </div>
