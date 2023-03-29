@@ -15,7 +15,6 @@ const defaultState = {
 //stack это стукртура данный по принципу последним зашел первым вышел, последнняя папка открытая будет лежать на вершине
 
 export default function fileReducer(state = defaultState, action) {
-  console.log("actionDelete", action);
   switch (action.type) {
     case SET_FILES:
       return { ...state, files: action.payload }; //возвращаем изменный поле files

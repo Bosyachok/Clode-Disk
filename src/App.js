@@ -8,6 +8,7 @@ import Login from "./componets/registration/Login";
 import { useSelector, useDispatch } from "react-redux";
 import { auth } from "./actions/user";
 import Disk from "./componets/disk/Disk";
+import Profile from "./componets/profile/Profile";
 
 function App() {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -32,6 +33,7 @@ function App() {
             ) : (
               <>
                 <Route path="/" element={<Disk />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </>
             )}

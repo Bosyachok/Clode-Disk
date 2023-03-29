@@ -1,6 +1,7 @@
 import axios from "axios";
 import { showLoader, hideLoader } from "../reducers/appReducer";
 import { addFile, setFiles, deleteFileAction } from "../reducers/fileReducer";
+import { API_URL } from "./../config";
 import {
   addUploadFile,
   chandgeUplaodFile,
@@ -139,7 +140,7 @@ export function searchFiles(search) {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/files/search?search=${search}`,
+        `${API_URL}api/files/search?search=${search}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
